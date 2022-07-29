@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <style>
+            body{
+                background-color: #D3D3D3
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <center>
+            <h:messages id="ErrorMessage" style="background-color: gold"></h:messages>
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="ACCOUNT REGISTRATION"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Account Number:" for="number" />
+                    <h:inputText id="number" value="#{acc.acnt.accountNo}" title="Number" validatorMessage="The Bank Account is Always 12 digit number" >
+                        <f:validateRegex pattern="[0-9]{4}"/>
+                    </h:inputText>
+                     <h:outputLabel value="Name:" for="Name" />
+                     <h:inputText id="name" value="#{acc.acnt.name}" title="Name" />
+                    <h:outputLabel value="Password" for="password" />
+                    <h:inputSecret id="password" value="#{acc.acnt.password}" />
+                </h:panelGrid>
+                <h:commandButton value="Register" action="#{acc.registerAccount()}"></h:commandButton>
+            </h:form>
+        </f:view>
+        </center>
+    </h:body>
+</html>
+
